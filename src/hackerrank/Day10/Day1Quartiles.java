@@ -9,48 +9,31 @@ public class Day1Quartiles {
 	public static void main(String[] args) {
 
 		sc = new Scanner(System.in);
-		int T = sc.nextInt();
-		int x[] = new int[T];
-		for (int i = 0; i < T; i++)
+		int n = sc.nextInt();
+		int x[] = new int[n];
+		for (int i = 0; i < n; i++)
 			x[i] = sc.nextInt();
 		Arrays.sort(x);
 
-		int l = T / 2;
-
-		int low[] = new int[l];
-		int up[] = new int[l];
-
-		for (int i = 0; i < T; i++) {
-			if (i < l)
-				low[i] = x[i];
-			else {
-				if (i > l) {
-					up[i - l - 1] = x[i];
-				} else
-					up[i - l] = x[i];
-			}
+		System.out.println(median(x, 0, n / 2 - 1));
+		System.out.println(median(x, 0, n - 1));
+		if (n % 2 == 0) {
+			System.out.println(median(x, n / 2, n - 1));
+		} else {
+			System.out.println(median(x, n / 2 + 1, n - 1));
 		}
 
-		Median(low);
-		Median(x);
-
-		Median(up);
+		sc.close();
 	}
 
-	public static void Median(int X[]) {
-		int siz = X.length;
+	private static int median(int[] arr, int start, int end) {
+		int length = end - start + 1;
 		int median = 0;
-		if (siz % 2 == 0) {
-			int l = siz / 2;
-			int R = (siz / 2) - 1;
-			median = (X[l] + X[R]) / 2;
-
+		if (length % 2 != 0) {
+			median = arr[start + length / 2];
 		} else {
-			int R = (siz / 2);
-			median = X[R];
-
+			median = (arr[start + length / 2 - 1] + arr[start + length / 2]) / 2;
 		}
-		System.out.println(median);
-
+		return median;
 	}
 }
