@@ -34,5 +34,4 @@ public class juggling {
 		return gcd(y, x % y);
 
 	}
-
 }
