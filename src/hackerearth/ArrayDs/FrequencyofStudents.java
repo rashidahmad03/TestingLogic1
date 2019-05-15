@@ -1,10 +1,35 @@
-package hackerearth;
+package hackerearth.ArrayDs;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.TreeMap;
 
-class HamiltonianandLagrangian {
+public class FrequencyofStudents {
+
+	public static void main(String[] args) throws IOException {
+		Reader r = new Reader();
+
+		int n = r.nextInt();
+		TreeMap<String, Integer> hp = new TreeMap();
+		int i = 0;
+		while (i < n) {
+			String v = r.readLine();
+			if (hp.containsKey(v)) {
+				int f = hp.get(v);
+				hp.put(v, ++f);
+			} else
+				hp.put(v, 1);
+
+			i++;
+		}
+		for (String a : hp.keySet())
+
+		{
+			System.out.println(hp.get(a));
+		}
+
+	}
 
 	static class Reader {
 		final private int BUFFER_SIZE = 1 << 16;
@@ -109,49 +134,6 @@ class HamiltonianandLagrangian {
 				return;
 			din.close();
 		}
-	}
-
-	public static void main(String args[]) throws Exception {
-		/*
-		 * Sample code to perform I/O: Use either of these methods for input
-		 * 
-		 * //BufferedReader BufferedReader br = new BufferedReader(new
-		 * InputStreamReader(System.in)); String name = br.readLine(); // Reading input
-		 * from STDIN System.out.println("Hi, " + name + "."); // Writing output to
-		 * STDOUT
-		 * 
-		 * //Scanner Scanner s = new Scanner(System.in); String name = s.nextLine(); //
-		 * Reading input from STDIN System.out.println("Hi, " + name + "."); // Writing
-		 * output to STDOUT
-		 * 
-		 */
-
-		Reader r = new Reader();
-
-		int n = r.nextInt();
-
-		int[] a = new int[n];
-
-		for (int i = 0; i < n; i++) {
-			a[i] = r.nextInt();
-		}
-		int flag = 0;
-		for (int j = 0; j < n; j++) {
-			for (int k = j + 1, m = n - 1; k < n && m >= j + 1; k++, m--) {
-				if (a[j] < a[k] || a[j] < a[m]) {
-					flag = 1;
-					break;
-				}
-				if (m < k) {
-					break;
-				}
-			}
-			if (flag == 0) {
-				System.out.print(a[j] + " ");
-			}
-			flag = 0;
-		}
-		// Write your code here
 
 	}
 }

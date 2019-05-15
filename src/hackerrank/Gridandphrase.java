@@ -1,10 +1,48 @@
-package hackerearth;
+package hackerrank;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-class HamiltonianandLagrangian {
+public class Gridandphrase {
+
+	public static void main(String[] args) throws IOException {
+		Reader sc = new Reader();
+		int tc = sc.nextInt();
+		int l = sc.nextInt();
+		sc.readLine();
+		StringBuffer bf = new StringBuffer();
+		String ar[] = new String[tc];
+		for (int i = 0; i < tc; i++) {
+			ar[i] = sc.readLine();
+		}
+		char arr[][] = new char[tc + 4][l + 4];
+		for (int i = 0; i < tc; i++) {
+			for (int j = 0; j < l; j++) {
+				arr[i][j] = ar[i].charAt(j);
+			}
+		}
+
+		int c = 0;
+		for (int i = 0; i < tc; i++) {
+			for (int j = 0; j < l; j++) {
+				if (arr[i][j] == 's' && arr[i][j + 1] == 'a' && arr[i][j + 2] == 'b' && arr[i][j + 3] == 'a') {
+					c++;
+				}
+				if (arr[i + 1][j] == 's' && arr[i + 1][j] == 'a' && arr[i + 2][j] == 'b' && arr[i + 3][j] == 'a') {
+					// c++;
+				}
+				if (arr[i][j] == 's' && arr[i][j] == 'a' && arr[i][j] == 'b' && arr[i][j] == 'a') {
+					c++;
+				}
+				if (arr[i][j] == 's' && arr[i][j] == 'a' && arr[i][j] == 'b' && arr[i][j] == 'a') {
+					c++;
+				}
+			}
+		}
+		System.out.println(c);
+
+	}
 
 	static class Reader {
 		final private int BUFFER_SIZE = 1 << 16;
@@ -109,49 +147,5 @@ class HamiltonianandLagrangian {
 				return;
 			din.close();
 		}
-	}
-
-	public static void main(String args[]) throws Exception {
-		/*
-		 * Sample code to perform I/O: Use either of these methods for input
-		 * 
-		 * //BufferedReader BufferedReader br = new BufferedReader(new
-		 * InputStreamReader(System.in)); String name = br.readLine(); // Reading input
-		 * from STDIN System.out.println("Hi, " + name + "."); // Writing output to
-		 * STDOUT
-		 * 
-		 * //Scanner Scanner s = new Scanner(System.in); String name = s.nextLine(); //
-		 * Reading input from STDIN System.out.println("Hi, " + name + "."); // Writing
-		 * output to STDOUT
-		 * 
-		 */
-
-		Reader r = new Reader();
-
-		int n = r.nextInt();
-
-		int[] a = new int[n];
-
-		for (int i = 0; i < n; i++) {
-			a[i] = r.nextInt();
-		}
-		int flag = 0;
-		for (int j = 0; j < n; j++) {
-			for (int k = j + 1, m = n - 1; k < n && m >= j + 1; k++, m--) {
-				if (a[j] < a[k] || a[j] < a[m]) {
-					flag = 1;
-					break;
-				}
-				if (m < k) {
-					break;
-				}
-			}
-			if (flag == 0) {
-				System.out.print(a[j] + " ");
-			}
-			flag = 0;
-		}
-		// Write your code here
-
 	}
 }

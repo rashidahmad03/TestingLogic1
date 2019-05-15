@@ -1,10 +1,39 @@
-package hackerearth;
+package Spoj;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.math.BigInteger;
 
-class HamiltonianandLagrangian {
+public class PrimeGenerator {
+	public static void main(String[] args) throws IOException {
+		Reader sc = new Reader();
+		int tc = sc.nextInt();
+
+		StringBuffer bf = new StringBuffer();
+
+		for (int i = 0; i < tc; i++) {
+			long l = sc.nextLong();
+			long r = sc.nextLong();
+			for (long j = l; j < r; j++) {
+				BigInteger bi = new BigInteger(j + "");
+				if (bi.isProbablePrime(1)) {
+					bf.append(j + "\n");
+				}
+
+			}
+			bf.append("");
+		}
+
+		System.out.println(bf);
+
+	}
+
+	public static int gcd(int a, int b) {
+		if (b == 0)
+			return a;
+		return gcd(b, a % b);
+	}
 
 	static class Reader {
 		final private int BUFFER_SIZE = 1 << 16;
@@ -109,49 +138,5 @@ class HamiltonianandLagrangian {
 				return;
 			din.close();
 		}
-	}
-
-	public static void main(String args[]) throws Exception {
-		/*
-		 * Sample code to perform I/O: Use either of these methods for input
-		 * 
-		 * //BufferedReader BufferedReader br = new BufferedReader(new
-		 * InputStreamReader(System.in)); String name = br.readLine(); // Reading input
-		 * from STDIN System.out.println("Hi, " + name + "."); // Writing output to
-		 * STDOUT
-		 * 
-		 * //Scanner Scanner s = new Scanner(System.in); String name = s.nextLine(); //
-		 * Reading input from STDIN System.out.println("Hi, " + name + "."); // Writing
-		 * output to STDOUT
-		 * 
-		 */
-
-		Reader r = new Reader();
-
-		int n = r.nextInt();
-
-		int[] a = new int[n];
-
-		for (int i = 0; i < n; i++) {
-			a[i] = r.nextInt();
-		}
-		int flag = 0;
-		for (int j = 0; j < n; j++) {
-			for (int k = j + 1, m = n - 1; k < n && m >= j + 1; k++, m--) {
-				if (a[j] < a[k] || a[j] < a[m]) {
-					flag = 1;
-					break;
-				}
-				if (m < k) {
-					break;
-				}
-			}
-			if (flag == 0) {
-				System.out.print(a[j] + " ");
-			}
-			flag = 0;
-		}
-		// Write your code here
-
 	}
 }

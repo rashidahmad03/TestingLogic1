@@ -3,8 +3,35 @@ package hackerearth;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
 
-class HamiltonianandLagrangian {
+public class MinMax {
+
+	public static void main(String args[]) throws Exception {
+		Reader r = new Reader();
+
+		int n = r.nextInt();
+
+		int i = 0;
+		int min = 0;
+		int max = 0;
+		int arr[] = new int[n];
+		Arrays.sort(arr);
+		while (i < n) {
+			arr[i] = r.nextInt();
+
+			i++;
+		}
+		for (i = 0; i < n; i++) {
+			if (i < n - 1)
+				min += arr[i];
+			if (i >= 1)
+				max += arr[i];
+
+		}
+		System.out.println(min + " " + max);
+
+	}
 
 	static class Reader {
 		final private int BUFFER_SIZE = 1 << 16;
@@ -109,49 +136,6 @@ class HamiltonianandLagrangian {
 				return;
 			din.close();
 		}
-	}
-
-	public static void main(String args[]) throws Exception {
-		/*
-		 * Sample code to perform I/O: Use either of these methods for input
-		 * 
-		 * //BufferedReader BufferedReader br = new BufferedReader(new
-		 * InputStreamReader(System.in)); String name = br.readLine(); // Reading input
-		 * from STDIN System.out.println("Hi, " + name + "."); // Writing output to
-		 * STDOUT
-		 * 
-		 * //Scanner Scanner s = new Scanner(System.in); String name = s.nextLine(); //
-		 * Reading input from STDIN System.out.println("Hi, " + name + "."); // Writing
-		 * output to STDOUT
-		 * 
-		 */
-
-		Reader r = new Reader();
-
-		int n = r.nextInt();
-
-		int[] a = new int[n];
-
-		for (int i = 0; i < n; i++) {
-			a[i] = r.nextInt();
-		}
-		int flag = 0;
-		for (int j = 0; j < n; j++) {
-			for (int k = j + 1, m = n - 1; k < n && m >= j + 1; k++, m--) {
-				if (a[j] < a[k] || a[j] < a[m]) {
-					flag = 1;
-					break;
-				}
-				if (m < k) {
-					break;
-				}
-			}
-			if (flag == 0) {
-				System.out.print(a[j] + " ");
-			}
-			flag = 0;
-		}
-		// Write your code here
 
 	}
 }
