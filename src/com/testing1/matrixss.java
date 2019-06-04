@@ -1,4 +1,4 @@
-package com.arr;
+package com.testing1;
 
 public class matrixss {
 	public static void main(String... a) {

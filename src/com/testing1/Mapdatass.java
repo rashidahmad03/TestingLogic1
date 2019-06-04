@@ -1,4 +1,4 @@
-package com.arr;
+package com.testing1;
 
 import javafx.application.Application;
 import javafx.geometry.HPos;
