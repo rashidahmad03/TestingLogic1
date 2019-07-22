@@ -14,6 +14,7 @@ public class arrrarotation {
 		int d = Integer.parseInt(nd[1]);
 
 		int[] a = new int[n];
+		scanner.nextInt();
 
 		String[] aItems = scanner.nextLine().split(" ");
 		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
