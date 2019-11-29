@@ -1,28 +1,36 @@
-package com.rashid;
+package amazon;
 
-import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class Fastintput {
+public class ThirdLargest {
+	public static void main(String args[]) throws Exception {
 
-	public static void main(String... args) throws IOException {
-		StringBuilder sb = new StringBuilder();
-
-		BufferedOutputStream out = new BufferedOutputStream(System.out);
 		Reader s = new Reader();
 		int len = s.nextInt();
-		int req = s.nextInt();
+		int arr[] = new int[len];
 		for (int i = 0; i < len; i++) {
-			if (s.nextInt() >= req) {
-				sb.append("YES\n");
-			} else {
-				sb.append("NO\n");
-			}
+			arr[i] = s.nextInt();
 		}
-		out.write(sb.toString().getBytes());
-		out.flush();
+		int mx = arr[0];
+		for (int i = 0; i < len; i++) {
+			if (arr[i] > mx)
+				mx = arr[i];
+		}
+		int mx1 = Integer.MIN_VALUE;
+		for (int i = 0; i < len; i++) {
+			if (arr[i] > mx1 && arr[i] < mx)
+				mx1 = arr[i];
+		}
+		int mx2 = Integer.MIN_VALUE;
+		for (int i = 0; i < len; i++) {
+			if (arr[i] > mx2 && arr[i] < mx1)
+				mx2 = arr[i];
+		}
+
+		System.out.println(mx2);
+
 	}
 
 	static class Reader {
@@ -129,5 +137,4 @@ public class Fastintput {
 			din.close();
 		}
 	}
-
 }
