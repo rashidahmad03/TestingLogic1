@@ -31,7 +31,7 @@ public class EarthquakeinAfrica {
 				}
 				j++;
 			}
-		} // d
+		} // df
 		int sum = 0;
 		for (int i = 0; i < 100; i++) {
 			if (disval[i] != 0) {
