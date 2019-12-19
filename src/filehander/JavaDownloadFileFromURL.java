@@ -10,10 +10,10 @@ import java.nio.channels.ReadableByteChannel;
 public class JavaDownloadFileFromURL {
 
 	public static void main(String[] args) {
-		String url = "https://github.com/googleapis/nodejs-dialogflow/archive/master.zip";
+		String url = "https://cli-assets.heroku.com/heroku-x64.exe";
 
 		try {
-			downloadUsingNIO(url, "D:\\NdoeJsAngular7training\\New folder/dd.zip");
+			downloadUsingNIO(url, "D:\\NdoeJsAngular7training\\New folder/heroku-x64.exe");
 
 			// downloadUsingStream(url, "/Users/pankaj/sitemap_stream.xml");
 		} catch (IOException e) {
