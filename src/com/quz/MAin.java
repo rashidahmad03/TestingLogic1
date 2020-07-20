@@ -6,8 +6,8 @@ public class MAin {
 	}
 
 	public static void main(String[] args) {
-		AAX m = new AAX();
-		m.m1();
+		for(int i=0;i<100;i++)
+			System.out.println("Sorry");
 
 	}
 
